@@ -1,4 +1,4 @@
-## React 
+# React 
 Es una librería basada en JavaScript y desarrollada por Facebook para crear interfaces de usuario para web y móviles. Por su alto desempeño y modularidad. React es ideal para la creación de aplicaciones que requieren grandes cantidades de datos actualizados en tiempo real, por esto es usado por sitios como Facebook, Netflix,Imgur y Airbnb ente otros.
 
 ## Prerrequisitos
