@@ -5,7 +5,7 @@ Es una librería basada en JavaScript y desarrollada por Facebook para crear int
 Conocimiento de JavaScript.
 Conocimiento de HTML y CSS.
 
-## ¿Qué hace diferente a React JS de otras librerias?
+## ¿Qué hace diferente a React JS de otras librerías?
 Utiliza lenguaje JSX para construir la interfaz de usuario, por lo que si dominas HTML podras con gran facilidad crear tus propios componentes y su comportamiento. JSX crea plantillas donde se pueden anidar elementos, por lo que podrás crear componentes tan pequeños o grandes como creas conveniente.
 
 1. React JS usa un DOM Virtual que recarga individualmente cada componente cuando haga falta, por lo que ofrece una gran velocidad a la hora de renderizar vistas.
