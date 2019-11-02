@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>React App</title>
+  </head>
+  <div class="header">
+        <a class="logo">Tecnología Web - React</a>
+</div>
+  <body>
+    <div id="root"></div>
+    <br/>
+   
+  <div class="form-group"  id="campo">
+      <input type="text" id="myInput"  placeholder="Buscar alimento.." title="Type in a name">
+  </div>
+
+  <div id="container" style="width:700px;">
+
+  </div>
+  <footer>
+        <p>Investigación #2</p>
+       
+      </footer>
+
+</body>
+  <script>
+    
+var crudApp =  new function () {
+
+// AN ARRAY OF JSON OBJECTS WITH VALUES.
+this.myBooks = [
+    { idAlimento: 1, nombre: 'Arroz', foto: 'http://cdn.shopify.com/s/files/1/1479/5948/products/automercado-granos-arroz14_grande.png?v=1473833192', cantidad:10,fecha:'2019-12-01T04:44' },
+    { idAlimento: 2, nombre: 'Frijoles', foto: 'http://cdn.shopify.com/s/files/1/1479/5948/products/automercado-granos-frijolesycubaces12_grande.png?v=1473833267', cantidad:22,fecha:'2019-12-05T04:44'},
+    { idAlimento: 3, nombre: 'Atún', foto: 'https://images.lider.cl/wmtcl?source=url%5Bfile:/productos/11112a.jpg%5D&viewport=color%5Bwhite%5D,height%5B1000%5D,seed%5B1569580457%5D,vsize%5B497%5D,width%5B1000%5D,x%5B0%5D,y%5B0%5D&sink', cantidad:6,fecha:'2019-11-22T04:44'}
+]
+
+
+this.col = [];
+
+this.getProducts = function () {
+
+    // EXTRACT VALUE FOR TABLE HEADER.
+    for (var i = 0; i < this.myBooks.length; i++) {
+        for (var key in this.myBooks[i]) {
+            if (this.col.indexOf(key) === -1) {
+                this.col.push(key);
+            }
+        }
+    }
+
+    // CREATE A TABLE
+    var table = document.createElement('table');
+    table.setAttribute('id', 'myTable');     // SET TABLE ID.
+    var tr = table.insertRow(-1);               // CREATE A ROW (FOR HEADER).  
+    for (var h = 0; h < this.col.length; h++) {
+        // ADD TABLE HEADER.
+        var th = document.createElement('th');
+        th.innerHTML = this.col[h].replace('_', ' ');
+        tr.appendChild(th);
+    }
+
+    // ADD ROWS USING JSON DATA.
+    for (i = 0; i < this.myBooks.length; i++) {
+
+        tr = table.insertRow(-1);           // CREATE A NEW ROW.
+        for (var j = 0; j < this.col.length; j++) {
+            var tabCell = tr.insertCell(-1);
+            if (j==2){
+                var concatenar="<img src="+this.myBooks[i][this.col[j]] + " width=100"+"/>" 
+                tabCell.innerHTML = concatenar;
+            }
+            else{
+                tabCell.innerHTML = this.myBooks[i][this.col[j]];
+            }
+            
+        }
+
+        // DYNAMICALLY CREATE AND ADD ELEMENTS TO TABLE CELLS WITH EVENTS.
+
+        this.td = document.createElement('td');
+
+        // *** CANCEL OPTION.
+        tr.appendChild(this.td);
+        var lblCancel = document.createElement('label');
+        lblCancel.innerHTML = '✖';
+        lblCancel.setAttribute('onclick', 'crudApp.Cancel(this)');
+        lblCancel.setAttribute('style', 'display:none;');
+        lblCancel.setAttribute('title', 'Cancel');
+        lblCancel.setAttribute('id', 'lbl' + i);
+        this.td.appendChild(lblCancel);
+
+        // *** SAVE.
+        tr.appendChild(this.td);
+        var btSave = document.createElement('input');
+
+        btSave.setAttribute('type', 'button');      // SET ATTRIBUTES.
+        btSave.setAttribute('value', 'Guardar');
+        btSave.setAttribute('id', 'Save' + i);
+        btSave.setAttribute('style', 'display:none;');
+        btSave.setAttribute('onclick', 'crudApp.Save(this)');       // ADD THE BUTTON's 'onclick' EVENT.
+        this.td.appendChild(btSave);
+
+        // *** UPDATE.
+        tr.appendChild(this.td);
+        var btUpdate = document.createElement('input');
+
+        btUpdate.setAttribute('type', 'button');    // SET ATTRIBUTES.
+        btUpdate.setAttribute('value', 'Editar');
+        btUpdate.setAttribute('id', 'Edit' + i);
+        btUpdate.setAttribute('style', 'background-color:#44CCEB;');
+        btUpdate.setAttribute('onclick', 'crudApp.updateProduct(this)');   // ADD THE BUTTON's 'onclick' EVENT.
+        this.td.appendChild(btUpdate);
+
+        // *** DELETE.
+        this.td = document.createElement('th');
+        tr.appendChild(this.td);
+        var btDelete = document.createElement('input');
+        btDelete.setAttribute('type', 'button');    // SET INPUT ATTRIBUTE.
+        btDelete.setAttribute('value', 'Borrar');
+        btDelete.setAttribute('style', 'background-color:#ED5650;');
+        btDelete.setAttribute('onclick', 'crudApp.deleteProduct(this)');   // ADD THE BUTTON's 'onclick' EVENT.
+        this.td.appendChild(btDelete);
+    }
+
+
+    // ADD A ROW AT THE END WITH BLANK TEXTBOXES AND A DROPDOWN LIST (FOR NEW ENTRY).
+
+    tr = table.insertRow(-1);           // CREATE THE LAST ROW.
+
+    for ( j = 0; j < this.col.length; j++) {
+        var newCell = tr.insertCell(-1);
+        if (j >= 1) {
+            if(j==4){
+                var tBox = document.createElement('input');          // CREATE AND ADD A TEXTBOX.
+                tBox.setAttribute('type', 'datetime-local');
+                tBox.setAttribute('value', '');
+                newCell.appendChild(tBox);
+            }
+            else{
+                var tBox = document.createElement('input');          // CREATE AND ADD A TEXTBOX.
+                tBox.setAttribute('type', 'text');
+                tBox.setAttribute('value', '');
+                newCell.appendChild(tBox);
+            } 
+        }
+    }
+
+    this.td = document.createElement('td');
+    tr.appendChild(this.td);
+
+    var btNew = document.createElement('input');
+
+    btNew.setAttribute('type', 'button');       // SET ATTRIBUTES.
+    btNew.setAttribute('value', 'Crear');
+    btNew.setAttribute('id', 'New' + i);
+    btNew.setAttribute('style', 'background-color:#207DD1;');
+    btNew.setAttribute('onclick', 'crudApp.createProduct(this)');       // ADD THE BUTTON's 'onclick' EVENT.
+    this.td.appendChild(btNew);
+
+    var div = document.getElementById('container');
+    div.innerHTML = '';
+    div.appendChild(table);    // ADD THE TABLE TO THE WEB PAGE.
+};
+
+// ****** OPERATIONS START.
+
+// CANCEL.
+this.Cancel = function (oButton) {
+
+    // HIDE THIS BUTTON.
+    oButton.setAttribute('style', 'display:none; float:none;');
+
+    var activeRow = oButton.parentNode.parentNode.rowIndex;
+
+    // HIDE THE SAVE BUTTON.
+    var btSave = document.getElementById('Save' + (activeRow - 1));
+    btSave.setAttribute('style', 'display:none;');
+
+    // SHOW THE UPDATE BUTTON AGAIN.
+    var btUpdate = document.getElementById('Edit' + (activeRow - 1));
+    btUpdate.setAttribute('style', 'display:block; margin:0 auto; background-color:#44CCEB;');
+
+    var tab = document.getElementById('myTable').rows[activeRow];
+
+    for (var i = 0; i < this.col.length; i++) {
+        var td = tab.getElementsByTagName("td")[i];
+        td.innerHTML = this.myBooks[(activeRow - 1)][this.col[i]];
+    }
+}
+
+
+// EDIT DATA.
+this.updateProduct = function (oButton) {
+    var activeRow = oButton.parentNode.parentNode.rowIndex;
+    var tab = document.getElementById('myTable').rows[activeRow];
+
+    // SHOW A DROPDOWN LIST WITH A LIST OF CATEGORIES.
+    for (var i = 1; i < 5; i++) {
+            var td = tab.getElementsByTagName("td")[i];
+            var ele = document.createElement('input');   
+            console.log(ele);
+            if (i==4){
+                ele.setAttribute('type', 'datetime-local');
+                ele.setAttribute('value', td.innerText);
+                td.innerText = '';
+                td.appendChild(ele);
+            }
+            else{
+                ele.setAttribute('type', 'text');
+                ele.setAttribute('value', td.innerText);
+                td.innerText = '';
+                td.appendChild(ele);
+            }
+            
+        
+    }
+
+    var lblCancel = document.getElementById('lbl' + (activeRow - 1));
+    lblCancel.setAttribute('style', 'cursor:pointer; display:block; width:20px; float:left; position: absolute;');
+
+    var btSave = document.getElementById('Save' + (activeRow - 1));
+    btSave.setAttribute('style', 'display:block; margin-left:30px; float:left; background-color:#2DBF64;');
+
+    // HIDE THIS BUTTON.
+    oButton.setAttribute('style', 'display:none;');
+};
+
+
+// DELETE DATA.
+this.deleteProduct = function (oButton) {
+    var activeRow = oButton.parentNode.parentNode.rowIndex;
+    this.myBooks.splice((activeRow - 1), 1);    // DELETE THE ACTIVE ROW.
+    this.getProducts();                         // REFRESH THE TABLE.
+};
+
+// SAVE DATA.
+this.Save = function (oButton) {
+    var activeRow = oButton.parentNode.parentNode.rowIndex;
+    var tab = document.getElementById('myTable').rows[activeRow];
+
+    // UPDATE myBooks ARRAY WITH VALUES.
+    for (var i = 1; i < this.col.length; i++) {
+        var td = tab.getElementsByTagName("td")[i];
+            this.myBooks[(activeRow - 1)][this.col[i]] = td.childNodes[0].value; 
+        
+        
+    }
+    this.getProducts();     // REFRESH THE TABLE.
+}
+
+// CREATE NEW.
+this.createProduct = function (oButton) {
+    var activeRow = oButton.parentNode.parentNode.rowIndex;
+    var tab = document.getElementById('myTable').rows[activeRow];
+    var obj = {};
+
+    // ADD NEW VALUE TO myBooks ARRAY.
+    for (var i = 1; i < this.col.length; i++) {
+        var td = tab.getElementsByTagName("td")[i];
+       
+            var txtVal = td.childNodes[0].value;
+            console.log(txtVal + " variable input");
+            if (txtVal !== '') {
+                  obj[this.col[i]] = txtVal.trim();
+
+                
+            }
+            else {
+                obj = '';
+                alert('all fields are compulsory');
+                break;
+            }
+        
+    }
+    obj[this.col[0]] = this.myBooks.length + 1;     // NEW ID.
+
+    if (Object.keys(obj).length > 0) {      // CHECK IF OBJECT IS NOT EMPTY.
+        this.myBooks.push(obj);             // PUSH (ADD) DATA TO THE JSON ARRAY.
+        this.getProducts();                 // REFRESH THE TABLE.
+    }
+}
+
+
+
+// ****** OPERATIONS END.
+}
+
+
+crudApp.getProducts();
+
+  </script>
+
+
+</html>
