@@ -71,4 +71,8 @@ La creación puede que lleve un rato, pero sabremos que ha acabado cuando salga 
 ###### npm start
 
 
+Para correr este proyecto se debe ubicar en la carpeta iv2 con la consola y ejecutar el comando:
+###### npm start
+
+
 
