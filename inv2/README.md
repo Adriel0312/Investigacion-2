@@ -18,8 +18,22 @@ Utiliza lenguaje JSX para construir la interfaz de usuario, por lo que si domina
 
 ## Creación de un proyecto React JS
 
-## Paso 1. Descargar Node.js
+Paso 1. Descargar Node.js
   Para facilitar la creación de un proyecto, su estructura de carpetas, hacer uso de librerias externas y el despliegue local de la           aplicación usaremos npm. Para hacer uso de ello tenemos que tener descargado e instalado Node.js en nuestro equipo.
   En este link: https://nodejs.org/en/download/
+
+Paso 2. Instalar create-react-app
+  Gracias a create-react-app podremos, con un simple comando, crear nuestra primera aplicación con React JS. Para instalar este paquete,   usaremos npm y lo instalaremos de forma global usando el parametro –g.
+ Deberás abrir la consola de comandos (cmd en Windows, Terminal en Mac) y escribir lo siguiente:
+  ###### npm install -g create-react-app
+Este paso suele ser algo largo, pero sabremos identificar cuando ha terminado de instalar con facilidad.
+
+Paso 3. Crear proyecto React con create-react-app
+  Con la consola de comandos y haciendo uso del comando cd nos colocaremos en la carpeta donde queremos que se almacene nuestro proyecto    de React JS. Por ejemplo, vamos a crearlo dentro de la carpeta react que se encuentrará en el Escritorio: 
+ ###### cd C:\Users\nombreUsuario\Desktop\react. 
+   Donde nombreusuario es el nombrel tu usuario y react la carpeta que debes haber creado previamente en el escritorio.
+Una vez que ya estamos colocados en la carpeta que queremos, simplemente usaremos create-react-app para crear el proyecto, que llamaremos, por ejemplo, prueba-react.
+
+###### create-react-app prueba-react
 
 
