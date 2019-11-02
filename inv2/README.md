@@ -18,7 +18,8 @@ Utiliza lenguaje JSX para construir la interfaz de usuario, por lo que si domina
 
 ## Creación de un proyecto React JS
 
-Paso 1. Descargar Node.js
-Para facilitar la creación de un proyecto, su estructura de carpetas, hacer uso de librerias externas y el despliegue local de la aplicación usaremos npm. Para hacer uso de ello tenemos que tener descargado e instalado Node.js en nuestro equipo.
+## Paso 1. Descargar Node.js
+  Para facilitar la creación de un proyecto, su estructura de carpetas, hacer uso de librerias externas y el despliegue local de la           aplicación usaremos npm. Para hacer uso de ello tenemos que tener descargado e instalado Node.js en nuestro equipo.
+  En este link: https://nodejs.org/en/download/
 
-[a link] (https://github.com/user/repo/blob/branch/other_file.md)
+
