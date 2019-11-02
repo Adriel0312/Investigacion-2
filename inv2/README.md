@@ -36,4 +36,39 @@ Una vez que ya estamos colocados en la carpeta que queremos, simplemente usaremo
 
 ###### create-react-app prueba-react
 
+La creación puede que lleve un rato, pero sabremos que ha acabado cuando salga un mensaje de éxito y nos indique que el proyecto ya está disponible en el directorio donde nos situámos.
+
+
+Paso 4. Comprender la Estructura del Proyecto creado
+  Es importante conocer la estructura del proyecto, dado que será la base de nuestra aplicación.
+
+###### Carpeta node_modules
+  Aquí se guardan todas las dependencias ppm del proyecto que vayamos necesitando. Create-react-app ya nos habrá instalado unas cuantas   por defecto.
+
+###### Carpeta public
+  Esta es la raíz del proyecto y aquí estará el archivo principal: index.html y el favicon: icono que aparecerá en la pestaña del         navegador cuando despleguemos la aplicación. Habrá una etiqueta <div> dentro de index.html con un id “root” que nos indica dónde se va   a introducir el componente principal (App.js) de nuestra aplicación.
+  
+###### Carpeta src
+  En esta carpeta, es donde están los componentes y sus estilos, a parte de otros ficheros js que necesitemos. Por defecto, el componente principal de todo proyecto React JS se llama App.js. También habrá un index.js que se encarga de introducir el componente App en el <div> de index.html que hemos mencionado en el punto anterior.
+
+  Encontramos a la misma altura, las hojas de estilo: App.css e index.css; una imagen (svg) del logo de React JS; un archivo para realizar tests sobre el componente App y un archivo javascript llamado registerServiceWorker.js.
+
+###### Archivo readme.md
+  Se trata de un fichero de informacion sobre el proyecto.
+
+###### Archivo package.json
+  Aquí encontramos las dependencias de npm que hayamos instalado en el proyecto, tanto para desarrollo como para producción.
+
+###### Archivo .gitignore
+  Documento donde se definen aquellos archivos a ignorar en git.
+  
+
+Paso 5. Desplegar el proyecto y visualizarlo en el navegador
+  El proyecto a estas alturas es perfectamente desplegable. Obviamente, es el proyecto por defecto que nos ha ofrecido create-react-app.
+
+  Para poder desplegar el proyecto en nuestro entorno local (localhost) usaremos un comando npm que nos abrirá el navegador que tengamos   predeterminado y en una pestaña nueva nos mostrara la interfaz de usuario definida. Tenemos que estar en la carpeta del proyecto, por   lo que haremos cd para entrar en pruebaReact y desde ahí podremos hacer:
+
+###### npm start
+
+
 
