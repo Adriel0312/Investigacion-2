@@ -1,68 +1,24 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## React 
+Es una librería basada en JavaScript y desarrollada por Facebook para crear interfaces de usuario para web y móviles. Por su alto desempeño y modularidad. React es ideal para la creación de aplicaciones que requieren grandes cantidades de datos actualizados en tiempo real, por esto es usado por sitios como Facebook, Netflix,Imgur y Airbnb ente otros.
 
-## Available Scripts
+## Prerrequisitos
+Conocimiento de JavaScript.
+Conocimiento de HTML y CSS.
 
-In the project directory, you can run:
+## ¿Qué hace diferente a React JS de otras librerias?
+Utiliza lenguaje JSX para construir la interfaz de usuario, por lo que si dominas HTML podras con gran facilidad crear tus propios componentes y su comportamiento. JSX crea plantillas donde se pueden anidar elementos, por lo que podrás crear componentes tan pequeños o grandes como creas conveniente.
 
-### `npm start`
+1. React JS usa un DOM Virtual que recarga individualmente cada componente cuando haga falta, por lo que ofrece una gran velocidad a la hora de renderizar vistas.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. Los componentes son totalmente independientes y contienen su propio comportamiento, un estado y el contenido a renderizar. Éstos,  contienen elementos que se pueden anidar, igual que podemos anidar componentes y que se comuniquen entre ellos.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+3. Las aplicaciones en React JS tienen un estado global que repercute en el estado individual de cada componente.
 
-### `npm test`
+4. El isomorfismo (renderización HTML en servidor como en cliente)  de React JS ofrece la posibilidad de entregar el HTML ya renderizado a los buscadores web, como Google, y así mejorar el posicionamiento. De esta manera se evita el problema de que el buscador se encuentre el cuerpo de la página vacío).
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Creación de un proyecto React JS
 
-### `npm run build`
+Paso 1. Descargar Node.js
+Para facilitar la creación de un proyecto, su estructura de carpetas, hacer uso de librerias externas y el despliegue local de la aplicación usaremos npm. Para hacer uso de ello tenemos que tener descargado e instalado Node.js en nuestro equipo.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[a link] (https://github.com/user/repo/blob/branch/other_file.md)
