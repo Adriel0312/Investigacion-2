@@ -1,68 +1,75 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React 
+Es una librería basada en JavaScript y desarrollada por Facebook para crear interfaces de usuario para web y móviles. Por su alto desempeño y modularidad. React es ideal para la creación de aplicaciones que requieren grandes cantidades de datos actualizados en tiempo real, por esto es usado por sitios como Facebook, Netflix,Imgur y Airbnb ente otros.
 
-## Available Scripts
+## Prerrequisitos
+Conocimiento de JavaScript.
+Conocimiento de HTML y CSS.
 
-In the project directory, you can run:
+## ¿Qué hace diferente a React JS de otras librerias?
+Utiliza lenguaje JSX para construir la interfaz de usuario, por lo que si dominas HTML podras con gran facilidad crear tus propios componentes y su comportamiento. JSX crea plantillas donde se pueden anidar elementos, por lo que podrás crear componentes tan pequeños o grandes como creas conveniente.
 
-### `npm start`
+1. React JS usa un DOM Virtual que recarga individualmente cada componente cuando haga falta, por lo que ofrece una gran velocidad a la hora de renderizar vistas.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. Los componentes son totalmente independientes y contienen su propio comportamiento, un estado y el contenido a renderizar. Éstos,  contienen elementos que se pueden anidar, igual que podemos anidar componentes y que se comuniquen entre ellos.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+3. Las aplicaciones en React JS tienen un estado global que repercute en el estado individual de cada componente.
 
-### `npm test`
+4. El isomorfismo (renderización HTML en servidor como en cliente)  de React JS ofrece la posibilidad de entregar el HTML ya renderizado a los buscadores web, como Google, y así mejorar el posicionamiento. De esta manera se evita el problema de que el buscador se encuentre el cuerpo de la página vacío).
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Creación de un proyecto React JS
 
-### `npm run build`
+## Paso 1. Descargar Node.js
+  Para facilitar la creación de un proyecto, su estructura de carpetas, hacer uso de librerias externas y el despliegue local de la           aplicación usaremos npm. Para hacer uso de ello tenemos que tener descargado e instalado Node.js en nuestro equipo.
+  En este link: https://nodejs.org/en/download/
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Paso 2. Instalar create-react-app
+  Gracias a create-react-app podremos, con un simple comando, crear nuestra primera aplicación con React JS. Para instalar este paquete,   usaremos npm y lo instalaremos de forma global usando el parametro –g.
+ Deberás abrir la consola de comandos (cmd en Windows, Terminal en Mac) y escribir lo siguiente:
+  ###### npm install -g create-react-app
+Este paso suele ser algo largo, pero sabremos identificar cuando ha terminado de instalar con facilidad.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Paso 3. Crear proyecto React con create-react-app
+  Con la consola de comandos y haciendo uso del comando cd nos colocaremos en la carpeta donde queremos que se almacene nuestro proyecto    de React JS. Por ejemplo, vamos a crearlo dentro de la carpeta react que se encuentrará en el Escritorio: 
+ ###### cd C:\Users\nombreUsuario\Desktop\react. 
+   Donde nombreusuario es el nombrel tu usuario y react la carpeta que debes haber creado previamente en el escritorio.
+Una vez que ya estamos colocados en la carpeta que queremos, simplemente usaremos create-react-app para crear el proyecto, que llamaremos, por ejemplo, prueba-react.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+###### create-react-app prueba-react
 
-### `npm run eject`
+La creación puede que lleve un rato, pero sabremos que ha acabado cuando salga un mensaje de éxito y nos indique que el proyecto ya está disponible en el directorio donde nos situámos.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Paso 4. Comprender la Estructura del Proyecto creado
+  Es importante conocer la estructura del proyecto, dado que será la base de nuestra aplicación.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+###### Carpeta node_modules
+  Aquí se guardan todas las dependencias ppm del proyecto que vayamos necesitando. Create-react-app ya nos habrá instalado unas cuantas   por defecto.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+###### Carpeta public
+  Esta es la raíz del proyecto y aquí estará el archivo principal: index.html y el favicon: icono que aparecerá en la pestaña del         navegador cuando despleguemos la aplicación. Habrá una etiqueta <div> dentro de index.html con un id “root” que nos indica dónde se va   a introducir el componente principal (App.js) de nuestra aplicación.
+  
+###### Carpeta src
+  En esta carpeta, es donde están los componentes y sus estilos, a parte de otros ficheros js que necesitemos. Por defecto, el componente principal de todo proyecto React JS se llama App.js. También habrá un index.js que se encarga de introducir el componente App en el <div> de index.html que hemos mencionado en el punto anterior.
 
-## Learn More
+  Encontramos a la misma altura, las hojas de estilo: App.css e index.css; una imagen (svg) del logo de React JS; un archivo para realizar tests sobre el componente App y un archivo javascript llamado registerServiceWorker.js.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+###### Archivo readme.md
+  Se trata de un fichero de informacion sobre el proyecto.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+###### Archivo package.json
+  Aquí encontramos las dependencias de npm que hayamos instalado en el proyecto, tanto para desarrollo como para producción.
 
-### Code Splitting
+###### Archivo .gitignore
+  Documento donde se definen aquellos archivos a ignorar en git.
+  
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Paso 5. Desplegar el proyecto y visualizarlo en el navegador
+  El proyecto a estas alturas es perfectamente desplegable. Obviamente, es el proyecto por defecto que nos ha ofrecido create-react-app.
 
-### Analyzing the Bundle Size
+  Para poder desplegar el proyecto en nuestro entorno local (localhost) usaremos un comando npm que nos abrirá el navegador que tengamos   predeterminado y en una pestaña nueva nos mostrara la interfaz de usuario definida. Tenemos que estar en la carpeta del proyecto, por   lo que haremos cd para entrar en pruebaReact y desde ahí podremos hacer:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+###### npm start
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Para correr este proyecto se debe ubicar en la carpeta iv2 con la consola y ejecutar el comando:
+###### npm start
